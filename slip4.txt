@@ -1,0 +1,54 @@
+//slip 4
+Q1.
+
+import pandas as pd
+
+data = {
+    'Product': ['Laptop', 'Mobile', 'Keyboard', 'Mouse',
+                'Monitor', 'Printer', 'Tablet', 'Speaker'],
+    'Brand': ['HP', 'Samsung', 'Logitech', 'Dell',
+              'LG', 'Canon', 'Apple', 'Sony'],
+    'Category': ['Electronics', 'Electronics', 'Accessories',
+                 'Accessories', 'Electronics', 'Electronics',
+                 'Electronics', 'Accessories'],
+    'Price': [55000, 25000, 1500, 800, 12000, 9000, 40000, 3000]
+}
+
+df = pd.DataFrame(data)
+
+print("Product DataFrame:")
+print(df.head())
+
+Q2.
+
+import pandas as pd
+
+data = {
+    'Name': ['Shrikrishna', 'Shridhar', 'Mohan',
+             'Govind', 'Vasudev'],
+    'Address': ['Trivendram', 'Madurai', 'Suchindram',
+                'Rameswaram', 'Kanyakumari'],
+    'Age': [20, None, 19, 21, 22],
+    'Class': ['BE', 'BSc(CA)', 'BVoC', 'BCom', 'BSc']
+}
+
+df = pd.DataFrame(data)
+
+df.to_csv('StudentData.csv', index=False)
+
+print("StudentData.csv created successfully!")
+
+df = pd.read_csv('StudentData.csv')
+
+print("\nOriginal Dataset:")
+print(df)
+
+mean_age = df['Age'].mean()
+df['Age'] = df['Age'].fillna(mean_age)
+
+print("\nDataset after replacing missing Age:")
+print(df)
+
+df.to_csv('StudentData.csv', index=False)
+
+print("\nUpdated dataset saved successfully!")

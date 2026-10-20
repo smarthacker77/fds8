@@ -1,0 +1,25 @@
+//slip 27
+
+Q1
+import pandas as pd
+
+df = pd.DataFrame({
+    'Category': ['A', 'B', 'C', 'D', 'E'],
+    'Value': [20, 50, 10, 40, 30]
+})
+
+print(df)
+print("Maximum:", df['Value'].max())
+print("Minimum:", df['Value'].min())
+
+Q2
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("iris.csv")
+
+sns.jointplot(data=df, x='sepal_length',
+              y='sepal_width', kind='kde', fill=True)
+
+plt.show()

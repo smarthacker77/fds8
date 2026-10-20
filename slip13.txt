@@ -1,0 +1,51 @@
+//slip 13
+Q1
+import pandas as pd
+
+Data = {
+    "Name" : ["Atharv","Roshan",None,"Ankit","harshal"],
+    "Roll No" : [47,57,74,None,85],
+    "Percentage" : [95,97,78,86,None]
+}
+
+df = pd.DataFrame(Data)
+print("\n Orignal Data Frame ")
+print(df)
+
+print("\n Shape Of Data Frame")
+print(df.shape)
+print("\n Size Of Data Frame")
+print(df.size)
+print("\n Dtypes Of Data Frame")
+print(df.dtypes)
+print("\n Decscribe of Data Frame")
+print(df.describe())
+print("\n Length Of Data Frame")
+print(len(df))
+print("\n Missing Values Of Data Frame")
+print(df.isnull().sum())
+
+Q2
+import pandas as pd 
+from sklearn.preprocessing import LabelEncoder
+
+Data = {
+    "Contry" : ["India", "USA","UK","India","USA"],
+    "Purcesd" : ["Yes","No","Yes","No","Yes"]
+}
+
+df = pd.DataFrame(Data)
+df.to_csv('Data_csv', index = False)
+df = pd.read_csv('Data_csv')
+print("\n Orignal Csv Data Frame")
+print(df)
+
+df = pd.get_dummies(df, columns =["Contry"], dtype = int)
+print("\n After The Data Frame One Hot Encoding ")
+print(df)
+
+le = LabelEncoder()
+df["Purcesd"] = le.fit_transform(df["Purcesd"]) 
+print("\n After lebel Encoding ")
+print(df)
+

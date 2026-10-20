@@ -1,0 +1,50 @@
+//slip 11
+Q1
+import pandas as pd
+import numpy as np
+
+Data = {
+    "Month" : ["Jan","Feb","Mar","Apr","May","June","July","Aug","Spet","Oct","Nov","Dec"],
+    "Sales" : [10,14,25,26,35,37,39,19,16,85,17,56]
+}
+
+df = pd.DataFrame(Data)
+print("\n The Orignal Data Frame ")
+print(df)
+
+Data_Range = df["Sales"].max() - df["Sales"].min()
+Data_Var = np.var(df["Sales"])
+Data_Std = df["Sales"].std()
+
+print("\n The Range Of Data Frame :-",Data_Range)
+print("\n The Variance Of Data Frame :-",Data_Var)
+print("\n The Standard Deviation Of Data Frame :-",Data_Std)
+
+Q2
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('iris.csv')
+
+frequency = df['Species'].value_counts()
+
+plt.figure(figsize=(7, 5))
+plt.bar(frequency.index, frequency.values,
+        color=['red', 'green', 'blue'], edgecolor='black')
+
+plt.title("Frequency of Iris Species")
+plt.xlabel("Species")
+plt.ylabel("Frequency")
+plt.show()
+
+plt.figure(figsize=(7, 5))
+plt.hist(frequency.values, bins=5,
+        color='orange', edgecolor='black')
+
+plt.title("Histogram of Iris Species Frequencies")
+plt.xlabel("Frequency")
+plt.ylabel("Number of Species")
+plt.show()
+
+print("Frequency of Iris Species:")
+print(frequency)

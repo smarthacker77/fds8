@@ -1,0 +1,55 @@
+//slip16
+Q1
+
+import pandas as pd
+
+data = {
+    'Rollno': [1, 2, 3, 4, 5],
+    'Name': ['Rahul', 'Amit', 'Priya', 'Sneha', 'Rohit'],
+    'Mark1': [80, 75, 90, 85, 70],
+    'Mark2': [85, 80, 88, 90, 75],
+    'Mark3': [78, 82, 92, 86, 72]
+}
+
+df = pd.DataFrame(data)
+
+print("Student DataFrame:")
+print(df)
+
+print("\nMaximum Values:")
+print(df.max(numeric_only=True))
+
+print("\nMinimum Values:")
+print(df.min(numeric_only=True))
+
+print("\nDescriptive Statistics:")
+print(df.describe())
+
+print("\nShape of DataFrame:")
+print(df.shape)
+
+Q2
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+
+data = {
+    'Country': ['India', 'USA', 'UK', 'India', 'USA'],
+    'Purchased': ['Yes', 'No', 'Yes', 'No', 'Yes']
+}
+
+df = pd.DataFrame(data)
+
+df.to_csv("data.csv", index=False)
+
+df = pd.read_csv("data.csv")
+
+print("Original Dataset:")
+print(df)
+
+df = pd.get_dummies(df, columns=['Country'], dtype=int)
+
+le = LabelEncoder()
+df['Purchased'] = le.fit_transform(df['Purchased'])
+
+print("\nEncoded Dataset:")
+print(df)
